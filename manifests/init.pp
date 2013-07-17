@@ -1,11 +1,11 @@
-class 'nginx' {
+class nginx {
     package {"nginx":
         ensure  => latest
     }
 
     file {"/etc/nginx/sites-available/observatory":
         ensure  => present,
-        source  => "puppet:///nginx/observatory",
+        source  => "puppet:///modules/nginx/observatory",
     }
 
     file {"/etc/nginx/sites-enabled/observatory":
@@ -20,5 +20,6 @@ class 'nginx' {
             Package["nginx"],
             File["/etc/nginx/sites-available/observatory"],
             File["/etc/nginx/sites-enabled/observatory"],
+        ]
     }
 }
