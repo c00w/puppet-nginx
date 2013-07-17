@@ -13,6 +13,10 @@ class nginx {
         target  => "/etc/nginx/sites-available/observatory",
     }
 
+    file {"/etc/nginx/sites-enabled/default":
+        ensure  => absent,
+    }
+
     service {"nginx":
         ensure  => running,
         enable  => true,
