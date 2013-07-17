@@ -22,8 +22,10 @@ class nginx {
         enable  => true,
         require => [
             Package["nginx"],
+        ],
+        subscribe => [
             File["/etc/nginx/sites-available/observatory"],
             File["/etc/nginx/sites-enabled/observatory"],
-        ]
+        ],
     }
 }
